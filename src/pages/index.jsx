@@ -1,1 +1,1 @@
-export {default as WaitList} from './WaitList'
+export { default as WaitList } from './WaitList'

@@ -1,9 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const WaitList = () => {
   const [dogList, setDogList] = useState();
+  
+  const checkOutPup = (pupName)=>{
+    axios({
+      method: 'patch',
+      url: `http://localhost:3000/dogs/checkout/${pupName}`,      
+    }).then((res) =>{
+      let result = res.data;
+      console.log(result)
+    }).catch(err => console.log(err))
+  }  
 
+  useEffect(() => {
+    console.log("Render")
+  }, [dogList])
+  
+
+
+
+  
   let allDogs = () => {
     axios({
       method: "GET",
@@ -19,7 +37,7 @@ const WaitList = () => {
   return (
     <>
       <div className="WaitContainer">
-        <h1>Waiting List</h1>
+        <h1>Datewise List</h1>
         <button onClick={allDogs}>Get List</button>
 
         <table>
@@ -29,6 +47,7 @@ const WaitList = () => {
               <th>Age</th>
               <th>In Time</th>
               <th>Service Type</th>
+              <th>Checkout</th>
             </tr>
           </thead>
           <tbody>
@@ -41,21 +60,13 @@ const WaitList = () => {
                     <td>{dog.createdAt}</td>
                     <td>{dog.ServiceType}</td>
                     <td>
-                      {dog.OutStatus ? (
                         <input
                           type="checkbox"
                           name="Checkout"
                           id="out"
                           value={dog.Name}
+                          onClick={()=> checkOutPup(dog.Name)}
                         />
-                      ) : (
-                        <input
-                          type="checkbox"
-                          name="Checkout"
-                          id="out"
-                          value={dog.Name}
-                        />
-                      )}
                     </td>
                   </tr>
                 </>

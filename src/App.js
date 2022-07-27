@@ -1,6 +1,5 @@
 import './App.css';
-import {WaitList} from './pages';
-
+import { WaitList } from './pages';
 
 function App() {
   return (
