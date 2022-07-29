@@ -93,14 +93,14 @@ const QuickView = () => {
             </span>
         </Link>
 
-        <a href="/checkout" className="data-card">
+        <Link to="/checkout" className="data-card">
             <h3>{fetchCheckOut}</h3>
             <h4>Checkout Pending</h4>
             <p>{fetchCheckOut} pusps to checkout</p>
             <span className="link-text">
               <span className="btn btn-light">Click To CheckOut</span>
             </span>
-        </a>
+        </Link>
         </section>  
         
     </div>            

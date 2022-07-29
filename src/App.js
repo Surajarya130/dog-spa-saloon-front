@@ -15,8 +15,8 @@ import {
 function App() {
   return (
     <>
-    <BrowserRouter>
     {/* Dashboard and it's inner page, React Router V6 used */}
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} >
           <Route path='/' element={<QuickView />} />
