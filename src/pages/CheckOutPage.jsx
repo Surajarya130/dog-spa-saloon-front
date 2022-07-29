@@ -13,9 +13,9 @@ const CheckOutPage = () => {
       .then((res) => {
         let result = res.data;
         console.log(result);
-        // setTimeout(() => {
-        //   window.location.reload();
-        // }, 2000);
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       })
       .catch((err) => console.log(err));
   };
