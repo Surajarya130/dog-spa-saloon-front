@@ -3,7 +3,7 @@ import axios from "axios";
 
 const CheckOutPage = () => {
   const [dogList, setDogList] = useState();
-  const [mark, setMark] = useState(false);
+  // const [mark, setMark] = useState(false);
 
   const checkOutPup = (pupName) => {
     axios({
@@ -13,9 +13,9 @@ const CheckOutPage = () => {
       .then((res) => {
         let result = res.data;
         console.log(result);
-        setTimeout(() => {
-          window.location.reload(false);
-        }, 2000);
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 2000);
       })
       .catch((err) => console.log(err));
   };
@@ -34,7 +34,8 @@ const CheckOutPage = () => {
 
   useEffect(() => {
     allDogs();
-  }, [mark]);
+
+  }, [dogList]);
 
   return (
     <>
@@ -66,7 +67,6 @@ const CheckOutPage = () => {
                       name="Checkout"
                       id="out"
                       value={dog.Name}
-                      onChange={() => setMark(false)}
                       onClick={() => checkOutPup(dog.Name)}
                     />
                   </td>
