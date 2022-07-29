@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+// Same as react main file structure, stored the UI pages also in such fashion.
 import { 
   SearchByDate,
   WaitList,
@@ -8,7 +9,6 @@ import {
   QuickView,
   AddPup,
   SearchByName
-  
 } from './pages';
 
 
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-
+    {/* Dashboard and it's inner page, React Router V6 used */}
       <Routes>
         <Route path="/" element={<Dashboard />} >
           <Route path='/' element={<QuickView />} />
@@ -28,9 +28,6 @@ function App() {
           <Route path='/searchbyname' element={<SearchByName />} />
         </Route>
       </Routes> 
-
-
-
     </BrowserRouter>
     </>
   );
