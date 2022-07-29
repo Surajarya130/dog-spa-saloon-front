@@ -6,7 +6,7 @@ const WaitList = () => {
   const [dogList, setDogList] = useState();
 
 
-  
+  // Fetching All dogs of current date
   let allDogs = () => {
     axios({
       method: "GET",

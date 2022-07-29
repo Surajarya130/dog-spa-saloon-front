@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 const QuickView = () => {
 
+  // Quick view parameters with useStates
   const [allPups, setAllPups] = useState('')
   const [todaysPup, setTodaysPup] = useState('')
   const [fetchCheckOut, setDetchCheckOut] = useState('')
@@ -24,6 +25,8 @@ const QuickView = () => {
   }
 
   let fetchTodaysData = ()=>{
+    
+    // A date string to match with api's last value, was little tricky.
     let currDate = `${new Date().getFullYear()}-${new Date().getMonth() < 10 ? `0${new Date().getMonth()+1 }`: new Date().getMonth() +1}-${new Date().getDate()}`
     var config = {
       method: 'get',
@@ -59,12 +62,12 @@ const QuickView = () => {
   } 
 
 
-
+  // On every effect re-rendering the values so that data are keep dynamiclly visible to dashboard
   useEffect(() => {
     fetchAllPups();
     fetchTodaysData();
     datatToBeCheckedOut()
-  }, [allPups])
+  }, [allPups, todaysPup, fetchCheckOut])
   
 
   return (

@@ -1,3 +1,4 @@
+// Side bar elements using bootstrap 5
 import React from 'react'
 import {Link} from 'react-router-dom'
 const Sidebar = () => {

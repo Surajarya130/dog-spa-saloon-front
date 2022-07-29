@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const AddPup = () => {
+  // Calling all the input and alerts message and with useState 
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [owner, setOwner] = useState("");
@@ -12,7 +13,11 @@ const AddPup = () => {
   const [successMsg, setSuccessMsg] = useState(false)
 
 
+
+// OnSubmit the form
   const handleSubmit = ()=>{
+
+    // Basic form validation
     if(name.length > 3 && address.length >3 && owner.length > 3 && age>=1) {
       
       console.log("Form Validated")
@@ -35,10 +40,9 @@ const AddPup = () => {
         data : data
       };
       
+      // After successfull post clearing all useStates for the next Puppy
       axios(config)
       .then(function (response) {
-        // console.log(JSON.stringify(response.data));
-        // console.log("Added")
         setSuccessMsg(true)
         setName('')
         setAge('')
@@ -72,6 +76,7 @@ const AddPup = () => {
       <h1 className="text-center mb-3">Add Puppys to Spa</h1>
       <div className="formArea">
         {
+          // Success meesage condition with useState
           successMsg ? 
           <div className="alert alert-success" role="alert">
           New Pup Has been added!

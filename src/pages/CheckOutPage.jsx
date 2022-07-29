@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-
-
 const CheckOutPage = () => {
   const [dogList, setDogList] = useState();
-
   const [mark, setMark] = useState(false);
 
-  
   const checkOutPup = (pupName) => {
     axios({
       method: "patch",
@@ -78,8 +74,7 @@ const CheckOutPage = () => {
               </>
             ))}
         </tbody>
-      </table> 
-
+      </table>
     </>
   );
 };

@@ -6,6 +6,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-color: #fff;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
 }
 
 code {
@@ -17,14 +21,7 @@ code {
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
 
-body {
-  min-height: 100vh;
-  background-color: #fff;
-  margin: 0;
-  padding:0;
-  font-family: "Open Sans", sans-serif;
-}
-
+/* Side Navbar Styling */
 .side-navbar {
   width: inherit;
   height: 100%;
@@ -74,7 +71,6 @@ body {
 
 
 /* Main page and Area css */
-
 #mainBox{
   display: flex;
   justify-content: space-between;
@@ -142,8 +138,6 @@ body {
 
 
 /* Cards of quick view page */
-
-
 .allEmpContainer button{
   padding: 7px 15px;
   border-radius: 5px;
@@ -260,5 +254,4 @@ body {
 .input-group {
   justify-content: center;
 }
-
 /* Data card style ends here */

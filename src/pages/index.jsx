@@ -1,3 +1,4 @@
+// Made a proper center for every page so that we can extend the application further. 
 export { default as WaitList } from './WaitList'
 export { default as CheckOutPage } from './CheckOutPage'
 export { default as SearchByDate } from './SearchByDate'
