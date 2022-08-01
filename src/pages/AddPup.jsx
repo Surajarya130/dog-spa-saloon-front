@@ -18,7 +18,7 @@ const AddPup = () => {
   const handleSubmit = ()=>{
 
     // Basic form validation
-    if(name.length > 3 && address.length >3 && owner.length > 3 && age>=1) {
+    if(name.length >= 1 && address.length >= 1 && owner.length >= 1 && age >=1) {
       
       console.log("Form Validated")
       

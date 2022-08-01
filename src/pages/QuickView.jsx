@@ -73,7 +73,7 @@ const QuickView = () => {
   return (
     <>
       <div id="quickViewContainer">
-      <div className="allEmpContainer">
+        <div className="allEmpContainer">
         <section className="page-contain">
         <Link to ="/addPuppy" className="data-card">
             <h3>{allPups}</h3>
@@ -103,7 +103,7 @@ const QuickView = () => {
         </Link>
         </section>  
         
-    </div>            
+        </div>            
       </div>
     </>
   )

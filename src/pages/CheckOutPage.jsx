@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import loadingSpinner from '../assets/loadingSpinner.gif'
 
 const CheckOutPage = () => {
   const [dogList, setDogList] = useState();
@@ -35,6 +36,7 @@ const CheckOutPage = () => {
   useEffect(() => {
     allDogs();
   }, [mark]);
+  console.log(dogList)
 
   return (
     <>
@@ -51,7 +53,8 @@ const CheckOutPage = () => {
           </tr>
         </thead>
         <tbody>
-          {dogList &&
+          {dogList ?
+            (dogList.length <= 0)?<p>No Data Found, Please Add...</p> : 
             dogList.map((dog, index) => (
               <>
                 <tr key={index}>
@@ -71,8 +74,10 @@ const CheckOutPage = () => {
                     />
                   </td>
                 </tr>
-              </>
-            ))}
+              </> 
+            )) : <img src={loadingSpinner} alt="loading.." style={{width:"80px"}} />
+            
+          }
         </tbody>
       </table>
     </>
