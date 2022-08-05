@@ -40,6 +40,11 @@ const Sidebar = () => {
               <Link to='/searchByName' className="mx-2 sideLink">Search By Name</Link>
             </li>
 
+            <li className="nav-link">
+            <i class='bx bx-search-alt-2'></i>
+              <Link to='/livesearch' className="mx-2 sideLink">Live Search</Link>
+            </li>
+
         </ul>
 
       </div>

@@ -8,7 +8,8 @@ import {
   Dashboard,
   QuickView,
   AddPup,
-  SearchByName
+  SearchByName,
+  LiveSearch
 } from './pages';
 
 
@@ -22,8 +23,9 @@ function App() {
           <Route path='/' element={<QuickView />} />
           <Route path='/addpuppy' element={<AddPup />} />
           <Route path='/quickview' element={<QuickView />} />
+          <Route path='/waitinglist' element={<WaitList />} />          
           <Route path='/checkout' element={<CheckOutPage />} />
-          <Route path='/waitinglist' element={<WaitList />} />
+          <Route path="/liveSearch" element = {<LiveSearch />} />
           <Route path='/searchbydate' element={<SearchByDate />} />
           <Route path='/searchbyname' element={<SearchByName />} />
         </Route>

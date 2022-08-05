@@ -1,10 +1,8 @@
-import React, { useState, 
-} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const WaitList = () => {
   const [dogList, setDogList] = useState();
-
 
   // Fetching All dogs of current date
   let allDogs = () => {
@@ -23,7 +21,9 @@ const WaitList = () => {
     <>
       <div className="WaitContainer center">
         <h1>Waiting List</h1>
-        <button className="btn btn-dark mb-3" onClick={allDogs}>Get List</button>
+        <button className="btn btn-dark mb-3" onClick={allDogs}>
+          Get List
+        </button>
 
         <table className="table table-striped">
           <thead>
@@ -38,10 +38,12 @@ const WaitList = () => {
           </thead>
           <tbody>
             {dogList &&
+
+            dogList.length >= 1 ? (
               dogList.map((dog, index) => (
                 <>
                   <tr key={index}>
-                    <td>{index+1}</td>
+                    <td>{index + 1}</td>
                     <td>{dog.Name}</td>
                     <td>{dog.Owner}</td>
                     <td>{dog.Age}</td>
@@ -49,7 +51,9 @@ const WaitList = () => {
                     <td>{dog.ServiceType}</td>
                   </tr>
                 </>
-              ))}
+              ))
+            ) : ''
+            }
           </tbody>
         </table>
       </div>

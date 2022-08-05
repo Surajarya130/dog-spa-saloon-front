@@ -6,4 +6,4 @@ export { default as Dashboard } from './Dashboard'
 export { default as QuickView } from './QuickView'
 export { default as AddPup } from './AddPup'
 export { default as SearchByName } from './SearchByName'
-
+export {default as LiveSearch } from './LiveSearch'
