@@ -9,7 +9,7 @@ const LiveSearch = () => {
     const fetchData = async () => {
       axios({
         method: "GET",
-        url: `https://doggysalonappbackend.herokuapp.com/dogs/livesearch/${query}`,
+        url: `https://pup-spa.onrender.com/dogs/livesearch/${query}`,
       })
         .then((foundData) => {
           console.log(foundData.data);
@@ -46,16 +46,16 @@ const LiveSearch = () => {
           {fetchedData.length > 0 ? (
             fetchedData.map((item) => {
               return (
-                  <>
+                <>
                   <tr>
-                      <td>{item.Name}</td>
-                      <td>{item.Owner}</td>
-                      <td>{item.Age}</td>
-                      <td>{item.ServiceType}</td>
+                    <td>{item.Name}</td>
+                    <td>{item.Owner}</td>
+                    <td>{item.Age}</td>
+                    <td>{item.ServiceType}</td>
                   </tr>
-                  </>
-              )
-          })
+                </>
+              );
+            })
           ) : (
             <p>Search your pup</p>
           )}

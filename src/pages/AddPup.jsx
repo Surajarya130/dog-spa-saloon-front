@@ -2,91 +2,89 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const AddPup = () => {
-  // Calling all the input and alerts message and with useState 
+  // Calling all the input and alerts message and with useState
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [owner, setOwner] = useState("");
   const [address, setAddress] = useState("");
   const [gender, setGender] = useState("Male");
   const [serviceType, setServiceType] = useState("Washing");
-  const [alertMsg, setAlertMsg] = useState(false)
-  const [successMsg, setSuccessMsg] = useState(false)
+  const [alertMsg, setAlertMsg] = useState(false);
+  const [successMsg, setSuccessMsg] = useState(false);
 
-
-
-// OnSubmit the form
-  const handleSubmit = ()=>{
-
+  // OnSubmit the form
+  const handleSubmit = () => {
     // Basic form validation
-    if(name.length >= 1 && address.length >= 1 && owner.length >= 1 && age >=1) {
-      
-      console.log("Form Validated")
-      
+    if (
+      name.length >= 1 &&
+      address.length >= 1 &&
+      owner.length >= 1 &&
+      age >= 1
+    ) {
+      console.log("Form Validated");
+
       var data = JSON.stringify({
-        "Name": name,
-        "Age": age,
-        "Gender": gender,
-        "Owner": owner,
-        "Address": address,
-        "ServiceType": serviceType
+        Name: name,
+        Age: age,
+        Gender: gender,
+        Owner: owner,
+        Address: address,
+        ServiceType: serviceType,
       });
-      
+
       var config = {
-        method: 'post',
-        url: 'https://doggysalonappbackend.herokuapp.com/dogs/addPuppy',
-        headers: { 
-          'Content-Type': 'application/json'
+        method: "post",
+        url: "https://pup-spa.onrender.com/dogs/addPuppy",
+        headers: {
+          "Content-Type": "application/json",
         },
-        data : data
+        data: data,
       };
-      
+
       // After successfull post clearing all useStates for the next Puppy
       axios(config)
-      .then(function (response) {
-        setSuccessMsg(true)
-        setName('')
-        setAge('')
-        setOwner('')
-        setAddress('')
-        setTimeout(() => {
-        setSuccessMsg(false)
-        }, 3000);
-
-      })
-      .catch( (error)  => {
-        console.log("Error");
-        console.log(error)
-      }); 
-      
+        .then(function (response) {
+          setSuccessMsg(true);
+          setName("");
+          setAge("");
+          setOwner("");
+          setAddress("");
+          setTimeout(() => {
+            setSuccessMsg(false);
+          }, 3000);
+        })
+        .catch((error) => {
+          console.log("Error");
+          console.log(error);
+        });
     } else {
-      setAlertMsg(true)
+      setAlertMsg(true);
       setTimeout(() => {
-        setAlertMsg(false)
+        setAlertMsg(false);
       }, 2000);
-      
     }
-
-  }
-
-  
-
+  };
 
   return (
-    <> 
+    <>
       <h1 className="text-center mb-3">Add Puppys to Spa</h1>
       <div className="formArea">
         {
           // Success meesage condition with useState
-          successMsg ? 
-          <div className="alert alert-success" role="alert">
-          New Pup Has been added!
-          </div> : ''
-
+          successMsg ? (
+            <div className="alert alert-success" role="alert">
+              New Pup Has been added!
+            </div>
+          ) : (
+            ""
+          )
         }
 
-        {
-        alertMsg ? <p style={{color:"red"}}>Please fill all the details</p> : ''
-        }              
+        {alertMsg ? (
+          <p style={{ color: "red" }}>Please fill all the details</p>
+        ) : (
+          ""
+        )}
         <div className="mb-3">
           <input
             type="text"
@@ -107,7 +105,7 @@ const AddPup = () => {
             placeholder="Age"
             required
             value={age}
-            onChange={(e)=>setAge(e.target.value)}
+            onChange={(e) => setAge(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -118,7 +116,7 @@ const AddPup = () => {
             placeholder="Owner Name"
             required
             value={owner}
-            onChange={(e)=>setOwner(e.target.value)}
+            onChange={(e) => setOwner(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -129,7 +127,7 @@ const AddPup = () => {
             placeholder="Address"
             required
             value={address}
-            onChange={(e)=>setAddress(e.target.value)}
+            onChange={(e) => setAddress(e.target.value)}
           />
         </div>
         <div className="select-dropdown mb-3">
@@ -153,11 +151,14 @@ const AddPup = () => {
             <option value="Bathing">Bathing</option>
           </select>
         </div>
-        <button type="submit" className="btn btn-dark w-100" onClick={handleSubmit}>
+        <button
+          type="submit"
+          className="btn btn-dark w-100"
+          onClick={handleSubmit}
+        >
           Submit
         </button>
         <br />
-
       </div>
     </>
   );

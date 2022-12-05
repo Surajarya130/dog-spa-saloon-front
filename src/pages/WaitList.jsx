@@ -8,7 +8,7 @@ const WaitList = () => {
   let allDogs = () => {
     axios({
       method: "GET",
-      url: "https://doggysalonappbackend.herokuapp.com/dogs/",
+      url: "https://pup-spa.onrender.com/dogs/",
     })
       .then((res) => {
         let result = res.data;
@@ -37,23 +37,20 @@ const WaitList = () => {
             </tr>
           </thead>
           <tbody>
-            {dogList &&
-
-            dogList.length >= 1 ? (
-              dogList.map((dog, index) => (
-                <>
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{dog.Name}</td>
-                    <td>{dog.Owner}</td>
-                    <td>{dog.Age}</td>
-                    <td>{dog.createdAt}</td>
-                    <td>{dog.ServiceType}</td>
-                  </tr>
-                </>
-              ))
-            ) : ''
-            }
+            {dogList && dogList.length >= 1
+              ? dogList.map((dog, index) => (
+                  <>
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{dog.Name}</td>
+                      <td>{dog.Owner}</td>
+                      <td>{dog.Age}</td>
+                      <td>{dog.createdAt}</td>
+                      <td>{dog.ServiceType}</td>
+                    </tr>
+                  </>
+                ))
+              : ""}
           </tbody>
         </table>
       </div>
